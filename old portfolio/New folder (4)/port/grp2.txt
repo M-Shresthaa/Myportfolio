@@ -1,0 +1,23 @@
+create table db2 (
+	th_id , 				CONSTRAINTS pk_db2_th_id PRIMARY KEY
+	,th_title 		VARCHAR(50),	NOT NULL
+	,th_category 		VARCHAR(20)
+	,th_details 		VARCHAR(100),
+);
+insert into db2 (th_id, th_title, th_category, th_details)
+	 values (1, '', 'aaa', 'ccc', 'sxass');
+
+
+
+
+create table response (
+	th_id, 		number(2)		 CONSTRAINT fk_db2_th_id
+    						
+	,res_id 	number(8)		CONSTRAINTS pk_response_res_id PRIMARY KEY
+	,res_date 	date
+	,res_text 	varchar2(1000)		NOT NULL
+	,res_count	number			CONSTRAINT ck_response_res_count
+	,res_name 	varchar2(24)
+	,res_sex 	varchar2(24)
+);
+	

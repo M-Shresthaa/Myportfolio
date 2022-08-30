@@ -1,0 +1,97 @@
+L04 のおまけ
+
+1...
+CONN tbowner
+tbownerpass
+--
+SQL> CONN tbowner
+パスワードを入力してください:
+接続されました。
+--
+
+2....セッションが持つシステム
+
+SQL> SELECT * FROM session_roles;
+
+ROLE
+--------------------------------------------------------------------------------
+OWNER
+
+...
+ SELECT * FROM session_privs;
+
+PRIVILEGE
+----------------------------------------
+CREATE SEQUENCE
+CREATE VIEW
+CREATE PUBLIC SYNONYM
+CREATE SYNONYM
+CREATE TABLE
+CREATE SESSION
+
+6行が選択されました。
+
+3...
+CONN SYSTEM
+orcl
+SQL> CONN SYSTEM
+パスワードを入力してください:
+接続されました。
+
+REVOKE create sequence FROM tbowner;
+取消しが成功しました。
+
+REVOKE create session FROM operator, selector;
+取消しが成功しました。
+
+4....tbownerで再接続
+CONN tbowner
+tbownerpass
+SQL> CONN tbowner
+パスワードを入力してください:
+接続されました。
+
+SELECT * FROM session_privs;
+SQL> SELECT * FROM session_privs;
+
+PRIVILEGE
+----------------------------------------
+CREATE SEQUENCE
+CREATE VIEW
+CREATE PUBLIC SYNONYM
+CREATE SYNONYM
+CREATE TABLE
+CREATE SESSION
+
+6行が選択されました。
+
+
+5...
+COL role      FORMAT A30
+COL privilege FORMAT A30
+
+SELECT role, privilege
+FROM role_sys_privs;
+---
+SQL> SELECT role, privilege
+  2  FROM role_sys_privs;
+
+ROLE                           PRIVILEGE
+------------------------------ ------------------------------
+OWNER                          CREATE SYNONYM
+OWNER                          CREATE SESSION
+OWNER                          CREATE TABLE
+OWNER                          CREATE SEQUENCE
+OWNER                          CREATE VIEW
+---
+
+
+6...
+COL table_name FORMAT A30
+
+SELECT role, table_name, privilege
+FROM role_tab_privs;
+SQL> SELECT role, table_name, privilege
+  2  FROM role_tab_privs;
+
+レコードが選択されませんでした。
