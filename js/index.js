@@ -1,3 +1,7 @@
+alert("The site is still in construction BETA SITE");
+
+alert
+
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelectorAll('.nav__link')
 
