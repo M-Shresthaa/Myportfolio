@@ -1,5 +1,4 @@
 
-alert("The site is in beta mode (under construction)")
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelectorAll('.nav__link')
 
