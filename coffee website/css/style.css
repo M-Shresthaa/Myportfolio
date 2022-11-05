@@ -6,7 +6,18 @@
     --bg:#010103;
     --border:.1rem solid rgba(255,255,255,.3);
 }
+.languages li .japanese { display: none; }
+.languages li:hover .english { display: none; }
+.languages li:hover .japanese { display: block; }
 
+.languages {
+    display: flex;
+    justify-content: space-around;
+    font-size: 35px; 
+    list-style-type: none;
+    padding: 0;
+    
+  }
 *{
     font-family: 'Roboto', sans-serif;
     margin:0; padding:0;
